@@ -23,6 +23,4 @@ export class SignUpPage {
     this.authService.signUp(user);
     this.navCtrl.push('LoginPage');
   }
-  
-
 }

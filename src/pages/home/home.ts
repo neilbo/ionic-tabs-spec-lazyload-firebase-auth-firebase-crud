@@ -12,7 +12,6 @@ export class HomePage {
   constructor(public navCtrl: NavController,
               private authService: AuthProvider
               ) {
-
   }
 
   logout() {

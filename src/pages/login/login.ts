@@ -13,7 +13,6 @@ export class LoginPage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               private authService: AuthProvider
-
             ) {
   }
 
@@ -28,7 +27,6 @@ export class LoginPage {
   login(user: User) {
     this.authService.login(user);
     this.navCtrl.setRoot('TabsPage');
-    
   }
 
 }
