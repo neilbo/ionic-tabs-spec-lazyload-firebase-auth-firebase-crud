@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
+import { AuthProvider } from '../../providers/auth';
 
 @IonicPage()
 @Component({
@@ -8,12 +9,16 @@ import { NavController, IonicPage } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+              private authService: AuthProvider
+              ) {
 
   }
 
-  pushPage(){
-    this.navCtrl.push('Detail')
+  logout() {
+    this.authService.logout();
+    console.log('SignOut');
+    this.navCtrl.setRoot('LoginPage');
   }
 
 }
