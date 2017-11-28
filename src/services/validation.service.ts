@@ -40,9 +40,8 @@ export class ValidationService {
         } else {
             return { 'invalid_email': true };
         }
-
-        
     }
+    
     static emailRequired(control) {
         const isEmpty = _.isEmpty(control.value);
 

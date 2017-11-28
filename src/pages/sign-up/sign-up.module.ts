@@ -3,7 +3,6 @@ import { IonicPageModule } from 'ionic-angular';
 import { SignUpPage } from './sign-up';
 import { ComponentsModule } from '../../components/components.module'
 
-
 @NgModule({
   declarations: [
     SignUpPage,

@@ -21,20 +21,11 @@
         <ion-input type="text" formControlName="email"></ion-input>
       </ion-item>
       <control-messages [control]="signupForm.controls.email"></control-messages>
-      <!-- <ion-item *ngIf="!signupForm.controls.email.valid && (signupForm.controls.email.dirty || loginAttempt)
-      || (!signupForm.controls.email.valid && signupForm.controls.email.touched)">
-            <p class="form-error">Please enter a valid email.</p>
-      </ion-item>
-     -->
       <ion-item>
         <ion-label stacked>Password</ion-label>
         <ion-input type="password" formControlName="password"></ion-input>
       </ion-item>
       <control-messages [control]="signupForm.controls.password"></control-messages>
-      <!-- <ion-item *ngIf="!signupForm.controls.password.valid && (signupForm.controls.password.dirty || loginAttempt) 
-      || (!signupForm.controls.password.valid && signupForm.controls.password.touched)">
-            <p class="form-error">Please enter a valid password.</p>
-      </ion-item> -->
     </ion-list>
     <div padding>
       <button ion-button strong block type="submit">Sign Up</button>

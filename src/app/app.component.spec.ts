@@ -38,7 +38,7 @@ describe('MyApp Component', () => {
     expect(component instanceof MyApp).toBe(true);
   });
   
-  it('should set rootPage to TabsPage', () => {
+  it('should set rootPage to LoginPage', () => {
     expect(component.rootPage).toBe('LoginPage');
   });
 });
