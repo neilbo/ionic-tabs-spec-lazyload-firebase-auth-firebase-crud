@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { User } from '../../models/user.model';
 import { AuthProvider } from '../../providers/auth';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { ValidationService } from '../../services/validation.service';
+// import * as _ from 'lodash';
 
 @IonicPage()
 @Component({
@@ -9,11 +11,16 @@ import { AuthProvider } from '../../providers/auth';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  user = {} as User;
+  loginForm: FormGroup;
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
-              private authService: AuthProvider
+              private authService: AuthProvider,
+              private formBuilder: FormBuilder
             ) {
+              this.loginForm = this.formBuilder.group({
+                email: ['', [ValidationService.emailRequired, ValidationService.emailValidator]],
+                password: ['', ValidationService.passwordRequired]
+              });
   }
 
   ionViewDidLoad() {
@@ -21,10 +28,11 @@ export class LoginPage {
   }
 
   signUp() {
-    this.navCtrl.push('SignUpPage')
+    this.navCtrl.push('SignUpPage');
   }
 
-  login(user: User) {
+  login(user) {
+    user = this.loginForm.value
     this.authService.login(user);
     this.navCtrl.setRoot('TabsPage');
   }

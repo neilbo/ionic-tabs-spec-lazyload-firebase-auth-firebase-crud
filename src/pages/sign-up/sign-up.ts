@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { User } from '../../models/user.model';
 import { AuthProvider } from '../../providers/auth';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { ValidationService } from '../../services/validation.service';
 
 @IonicPage()
 @Component({
@@ -9,17 +10,23 @@ import { AuthProvider } from '../../providers/auth';
   templateUrl: 'sign-up.html',
 })
 export class SignUpPage {
-  user = {}  as User;
+  signupForm: FormGroup;
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
-              private authService: AuthProvider
+              private authService: AuthProvider,
+              private formBuilder: FormBuilder
             ) {
+              this.signupForm = this.formBuilder.group({
+                email: ['', [ValidationService.emailRequired, ValidationService.emailValidator]],
+                password: ['', ValidationService.passwordRequired]
+              });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignUp');
   }
-  signUp(user: User) {
+  signUp(user) {
+    user = this.signupForm.value
     this.authService.signUp(user);
     this.navCtrl.push('LoginPage');
   }

@@ -16,8 +16,7 @@ import { AuthProvider } from '../providers/auth';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
-    AngularFireAuthModule
-
+    AngularFireAuthModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [MyApp],
